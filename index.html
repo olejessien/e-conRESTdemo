@@ -1,81 +1,85 @@
 <!doctype HTML>
 <head>
-<link rel="stylesheet" href="css/stylesheet.css">
-<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-<script src="js/highlight.pack.js"></script>
-<link rel="stylesheet" href="css/highlight.styles/tomorrow.css">
-<script src="js/highlight.pack.js"></script>
-<!-- <script>hljs.initHighlightingOnLoad();</script> -->
-
+	<link rel="stylesheet" href="css/stylesheet.css">
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="js/highlight.pack.js"></script>
+	<link rel="stylesheet" href="css/highlight.styles/tomorrow.css">
 </head>
 <body>
-<!--
+	<span onclick="update('')" title="Click to go to root" style="cursor: hand;cursor: pointer;">https://restapi.e-conomic.com/</span><input id="requestpath" type="text" placeholder="products/" size="30"></input><span>?demo=true</span><input id="filter" type="text" placeholder="&filter=productNumber$lt:102" size="30"></input><button onclick="interactive_call();return false;">Go</button>
+	<br>
+	<small>Examples? try <a href="#" onclick="update('products', '&filter=productNumber$lt:102')">/products below 102</a></small>
+	
+	<pre><code id="output" class="json">Welcome to the e-conomic REST API demo console. Hit the 'Go' button and click through the endpoints. We've suggested an endpoint and a filter in the placeholder texts.</code></pre>
 
-
-
--->
-<span>https://restapi.e-conomic.com/</span><input id="interactive" type="text" placeholder="products/" size="30"></input><span>?demo=true</span><input id="filter" type="text" placeholder="&filter=productNumber$lt:102" size="30"></input>
-<button onclick="interactive_call();return false;">Go</button>
-<pre><code id="interactive_output" class="json">Welcome to the e-conomic REST API demo console. Hit the 'Go' button and click through the endpoints. We've suggested an endpoint and a filter in the placeholder texts.</code></pre>
-
-<script>
-    function update(call){
-        jQuery('#interactive').val(call);
-        interactive_call();
-    }
-
-    function interactive_call(){
-        var content = jQuery('#interactive').val()
-        if(content == ''){
-            content = '';
-        }
-        
-        var filter = jQuery('#filter').val()
-        var call_url = 'https://restapi.e-conomic.com/' + content + '?demo=true' + filter;
-        jQuery.ajax({
-      dataType: 'json',
-      url: call_url,
-      context: document.body
-    }).complete(function(data) {
-        if(data['status'] == 200){
-            var d = jQuery.parseJSON(data['responseText']);
-            jQuery('#interactive_output').text(JSON.stringify(d, null, 4));
-            
-            //On a 200 we highlight pretty
-            $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
-              });		
-			
-			//Let's make the https put themselves into the input field and submit.
-            
-            $('.hljs-string').on('click', function() {
-                str = $(this).text();
-                //console.log(str);
-                //console.log(str + '- clicked - not tested!');
-                
-                if(/("https.*\?)/i.test(str)) {
-                   //Doing something to matched strings
-                   
-                   //Slice away the starting "https://restapi.e-conomic.com/ (31 chars) and ending ?demo=true" (11 chars)
-                   update(str.slice(31, -11));
-                   //console.log(str + '- clicked!');
-                   return false;
-                }
-              });
-            
-        }
-        else if (data['status'] == 404) {
-            jQuery('#interactive_output').text(data['status'] + ' ' + data['statusText']);
-        }
-    });
-    }
-   
-	$("#interactive, #filter").keypress(function(event) {
-	    if (event.which == 13) {
-	        event.preventDefault();
+	<script>
+	    function update(call, extension){
+	        jQuery('#requestpath').val(call);
+	        jQuery('#filter').val(extension);
 	        interactive_call();
-	    	}
-			});	 
-   
-    </script>
-    </body>
+	    }
+	
+	    function interactive_call(){
+	        var content = jQuery('#requestpath').val()
+	        /*if(content == ''){
+	            content = 'invoices/drafts';
+	        }*/
+	        
+	        var filter = jQuery('#filter').val()
+	        var call_url = 'https://restapi.e-conomic.com/' + content + '?demo=true' + filter;
+	        jQuery.ajax({
+	      dataType: 'json',
+	      url: call_url,
+	      context: document.body
+	    }).complete(function(data) {
+	        if(data['status'] == 200){
+	            var d = jQuery.parseJSON(data['responseText']);
+	            jQuery('#output').text(JSON.stringify(d, null, 4));
+	            
+	            $('pre code').each(function(i, block) {
+	                hljs.highlightBlock(block);
+	              });		
+					            
+	            /* $('.hljs-string').on('click', function() {
+	                str = $(this).text();
+	                //console.log(str + '- clicked - not tested!');
+	                
+	                if(/("https.*\?)/i.test(str)) {
+                   
+	                   //Slice away all but needed requestpath and call 'update' with it.
+	                   update(str.slice(31, -11));
+	                   //console.log(str + '- clicked!');
+	                   return false;
+	                   
+	                }
+	              }); */
+	              
+	              $('.hljs-string').each( function() {
+	                  str = $(this).text();
+	                  console.log(str + '- eached - not tested!');
+	                  
+	                  if(/("https.*\?)/i.test(str)) {
+	                     console.log(str + '- match found!');
+	                     //console.log(this)
+	                     thispath = str.slice(31, str.indexOf('?'))
+	                     thisfilter = str.slice( str.indexOf("&"), -1 )
+
+	                     $( this ).wrap( '<a href="#" onclick="update(' + "'" + thispath + "'" + ',' + "'" + thisfilter + "'" + ')"></a>' );
+	                  }
+	                });
+	            
+	        }
+	        else if (data['status'] == 404) {
+	            jQuery('#output').text(data['status'] + ' ' + data['statusText']);
+	        }
+	    });
+	    }
+	   
+		$("#requestpath, #filter").keyup(function(event) {
+		    if (event.which == 13) {
+		        event.preventDefault();
+		        interactive_call();
+		   	}
+		});
+	</script>
+</body>
