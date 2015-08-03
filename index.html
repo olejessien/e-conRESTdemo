@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/highlight.styles/tomorrow.css">
 </head>
 <body>
-	<span onclick="update('')" title="Click to go to root" style="cursor: hand;cursor: pointer;">https://restapi.e-conomic.com/</span><input id="requestpath" type="text" placeholder="products/" size="30"></input><span>?demo=true</span><input id="filter" type="text" placeholder="&filter=productNumber$lt:102" size="30"></input><button onclick="interactive_call();return false;">Go</button>
+	<span onclick="update('')" title="Click to go to root" style="cursor: hand;cursor: pointer;">https://restapi.e-conomic.com/</span><input id="requestpath" type="text" placeholder="products/" size="30"></input><span>?demo=true</span><input id="parameters" type="text" placeholder="&filter=productNumber$lt:102" size="30"></input><button onclick="interactive_call();return false;">Go</button>
 	<br>
 	<small>Examples? try <a href="#" onclick="update('products', '&filter=productNumber$lt:102')">/products below 102</a></small>
 	
@@ -15,18 +15,19 @@
 	<script>
 	    function update(call, extension){
 	        jQuery('#requestpath').val(call);
-	        jQuery('#filter').val(extension);
+	        jQuery('#parameters').val(extension);
 	        interactive_call();
 	    }
 	
 	    function interactive_call(){
 	        var content = jQuery('#requestpath').val()
+	        //Default content for path
 	        /*if(content == ''){
 	            content = 'invoices/drafts';
 	        }*/
 	        
-	        var filter = jQuery('#filter').val()
-	        var call_url = 'https://restapi.e-conomic.com/' + content + '?demo=true' + filter;
+	        var parameters = jQuery('#parameters').val()
+	        var call_url = 'https://restapi.e-conomic.com/' + content + '?demo=true' + parameters;
 	        jQuery.ajax({
 	      dataType: 'json',
 	      url: call_url,
@@ -36,37 +37,28 @@
 	            var d = jQuery.parseJSON(data['responseText']);
 	            jQuery('#output').text(JSON.stringify(d, null, 4));
 	            
+	            //Run highlight.js on our code block
 	            $('pre code').each(function(i, block) {
 	                hljs.highlightBlock(block);
-	              });		
-					            
-	            /* $('.hljs-string').on('click', function() {
-	                str = $(this).text();
-	                //console.log(str + '- clicked - not tested!');
-	                
-	                if(/("https.*\?)/i.test(str)) {
-                   
-	                   //Slice away all but needed requestpath and call 'update' with it.
-	                   update(str.slice(31, -11));
-	                   //console.log(str + '- clicked!');
-	                   return false;
-	                   
-	                }
-	              }); */
+	              });
 	              
-	              $('.hljs-string').each( function() {
-	                  str = $(this).text();
-	                  console.log(str + '- eached - not tested!');
-	                  
-	                  if(/("https.*\?)/i.test(str)) {
-	                     console.log(str + '- match found!');
-	                     //console.log(this)
-	                     thispath = str.slice(31, str.indexOf('?'))
-	                     thisfilter = str.slice( str.indexOf("&"), -1 )
+	            //Find all REST self links and make them interactive by wrapping with a+onclick
+	            $('.hljs-string').each( function() {
+	                str = $(this).text();
+	                //console.log(str + '- eached - not tested!');
+	                
+	                //Check if .hljs-string classed element contains starts with "https  
+	                if(/("https.*\?)/i.test(str)) {
+	                   //console.log(str + '- match found!');
+	                   //console.log(this)
+	                   //the path is everything after the REST API root URL and up until we start the URL parameters with '?'. So the leading "https://.. etc can be removed as we add it staticly.
+	                   thispath = str.slice(31, str.indexOf('?'))
+	                   //The parameters presume that we cut away ?demo=true as we've decided this is a static part of our REST demo. The last character being cut off is the doublequote around the JSON string.
+	                   parameters = str.slice( str.indexOf("&"), -1 )
 
-	                     $( this ).wrap( '<a href="#" onclick="update(' + "'" + thispath + "'" + ',' + "'" + thisfilter + "'" + ')"></a>' );
-	                  }
-	                });
+	                   $( this ).wrap( '<a href="#" onclick="update(' + "'" + thispath + "'" + ',' + "'" + parameters + "'" + ')"></a>' );
+	                }
+	             });
 	            
 	        }
 	        else if (data['status'] == 404) {
@@ -75,7 +67,7 @@
 	    });
 	    }
 	   
-		$("#requestpath, #filter").keyup(function(event) {
+		$("#requestpath, #parameters").keyup(function(event) {
 		    if (event.which == 13) {
 		        event.preventDefault();
 		        interactive_call();
