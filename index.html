@@ -2,26 +2,94 @@
 <head>
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 	<script src="js/highlight.pack.js"></script>
-
-	<script type="text/javascript" src="//use.typekit.com/wze1wut.js?n8wtaj"></script>
 	<link rel="stylesheet" href="https://www.e-conomic.com/css/w-screen.css?open&amp;v=20150319" media="screen">
 	<link rel="stylesheet" href="https://www.e-conomic.com/css/facelift.css?open&amp;v=2" media="screen">
-	<style type="text/css">.tk-proxima-nova,body{font-family:"proxima-nova",sans-serif;}.tk-adelle{font-family:"adelle",serif;}</style>
-	<script>try{Typekit.load();}catch(e){}</script>
 	<link rel="stylesheet" href="css/stylesheet.css">
 	<link rel="stylesheet" href="css/highlight.styles/tomorrow.css">
 	
 </head>
 <body>
+<header class="header" id="header" role="banner">
+	<div id="mobile_navigation"></div>
+		<div id="support">
+		<div class="region region-support-navigation">
+						<div class="navigation-search">
+				<form action="https://www.e-conomic.com/search/" id="cse-search-box">
+					<input type="hidden" name="open" value="">
+					<input type="hidden" name="cx" value="005410571569041608425:jvk39uimgyq">
+					<input type="hidden" name="cof" value="FORID:11;NB:1">
+					<input type="hidden" name="ie" value="UTF-8">
+					<input type="text" id="wg-search-fld" name="q" maxlength="128" value="" placeholder="Search">
+					<div class="navigation-search-btn">
+						<button id="wg-search-btn-ctr" name="sa" value="" title="Search" type="submit" class="btn-seach-img"></button>
+					</div>
+				</form>	
+			</div>
+						<div class="block block-menu first last odd block-menu_main_menu_support block-35" role="navigation">
+				<ul class="menu">
+																	<li class="menu__item is-leaf first leaf"> <a href="tel:08456-800-471" title="Phone" class="menu__link">08456-800-471</a></li>
+																						
+															<li class="menu__item is-leaf  leaf"><a href="http://wiki.e-conomic.co.uk/" title="UK e-copedia wiki, help and guides to e-conomic" class="menu__link">e-copedia</a></li>										<li class="menu__item is-leaf  leaf"><a href="http://blog.e-conomic.co.uk/" title="UK blog, dialogue on e-conomic" class="menu__link">Blog</a></li>																																																	</ul>
+			</div>
+		</div>
+	</div>
+		<div id="navigation">
+		<div class="region region-navigation">
+			<div class="block block-menu first odd block-menu_header_menu block-33" role="navigation">
+				<ul class="menu">
+					<li class="menu__item is-leaf first leaf"><a href="https://www.e-conomic.com/" class="menu__link e-conomic-logo logo-no-tagline" title="Home of e-conomic, the online accounting software"> Home of e-conomic, the online accounting software</a></li>
+																<li class="menu__item is-leaf leaf">
+													<a title="Features and functions in e-conomicGet started with e-conomic" href="https://www.e-conomic.com/functions" class="menu__link">Functions</a>
+												</li>
+											<li class="menu__item is-leaf leaf">
+													<a title="Prices" href="https://www.e-conomic.com/accountingsoftware/prices" class="menu__link">Prices</a>
+												</li>
+											<li class="menu__item is-leaf leaf">
+													<a title="Apps for e-conomic" href="https://www.e-conomic.com/apps" class="menu__link">Apps</a>
+												</li>
+											<li class="menu__item is-leaf leaf">
+													<a title="e-conomic support" href="https://www.e-conomic.com/support" class="menu__link">Support</a>
+												</li>
+											<li class="menu__item is-leaf last leaf">
+													<a title="About e-conomic" href="https://www.e-conomic.com/about" class="menu__link">About us</a>
+												</li>
+														</ul>
+			</div>
+			<div class="block block-menu last even block-menu_main_menu_actions block-34" role="navigation">
+
+				<h2 class="block__title block-title">Header menu actions</h2>
+
+				<ul class="menu">
+					<li class="menu__item is-leaf first leaf"><a href="https://www.e-conomic.co.uk/accountingsystem/order" class="menu__link" title="Buy now">Buy now</a></li>
+					<li class="menu__item is-leaf last leaf"><a href="https://login.e-conomic.com/global" class="menu__link" title="Log on to e-conomic">Login</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</header>
+<aside class="row md_bgr_t4 md_bredcrumbs_cta pbm">
+	<div class="wrap">
+		<nav class="cell s3of4 fs8 fc6">
+						<ul class="md_inlb md_breadcrumbs ptm">
+												<li><a href="https://www.e-conomic.com">Home page</a></li>
+												<li><a href="https://www.e-conomic.com">Developer</a></li>
+																<li class="sel">REST Demo</li>
+															</ul>
+            		</nav>
+		<div class="cell s1of4">
+					</div>
+	</div>
+</aside>
 	<div class="row pbe md_bgr_t4">
 		<article class="wrap">
 			<div class="cell s1of1" id="demo">
 				<h1 class="hs2">REST Demo</h1>
-				<span class="md_input_t1" onclick="update('')" title="Click to go to root" style="cursor: hand;cursor: pointer;">https://restapi.e-conomic.com/</span><input id="requestpath" class="md_input_w3 md_input_t1" type="text" placeholder="products/" size="20"></input><span class="md_input_t1">?demo=true</span><input id="parameters" class="md_input_w3 md_input_t1" type="text" placeholder="&filter=productNumber$lt:102" size="20"></input><button onclick="interactive_call();return false;" class="md_but_t2 md_rad2 fs8">Go</button>
+				<button class="btn-fullscreen">Toggle full width</button><br>
+				<span class="md_input_t1 oj_static" onclick="update('')" title="Click to go to root" style="cursor: hand;cursor: pointer;">https://restapi.e-conomic.com/</span> <input id="requestpath" class="md_input_w3 md_input_t1" type="text" placeholder="products/" size="20" />
+				<i id="pathhelp"><span  class="question-circle">?</span></i><span class="md_input_t1 oj_static">?demo=true</span> <input id="parameters" class="md_input_w3 md_input_t1" type="text" placeholder="&filter=productNumber$lt:102" size="20" /> <i id="filterhelp"><span  class="question-circle">?</span></i> <button onclick="interactive_call();return false;" class="md_but_t2 md_rad2 fs8">Go</button>
 			<br>
 			<small>Examples? <a href="#" onclick="update('products', '&filter=productNumber$gt:112')">ProductNumbers greater than 112</a> or perhaps <a href="#" onclick="update('invoices-experimental/drafts', '&filter=date$eq:2014-11-21')">Invoice drafts from Nov. 21st 2014</a></small>
-			<br><br>
-			<button class="btn-fullscreen md_but_t2 md_rad2 fs8">Toggle fullscreen</button>
 			<br><br>
 			<pre id="restcontainer"><code id="output" class="json">...</code></pre>
 		
@@ -37,20 +105,24 @@
 			        
 			        //Default content for path
 			        if(content == 'banana'){
+			        	$('.easter').attr("src", " ");
+			        	$('.easter').remove();
 			        	jQuery('#output').text('Maybe check your phone? There\'s no banana endpoints here.');
-			        	var phone = $("<iframe id='easter' type='text/html' width='940' height='600' src='http://www.youtube.com/embed/j5C6X9vOEkU?autoplay=1&start=11&controls=0&showinfo=0' frameborder='0'/>");
+			        	var phone = $("<iframe class='easter' type='text/html' width='940' height='600' src='http://www.youtube.com/embed/j5C6X9vOEkU?autoplay=1&start=11&controls=0&showinfo=0' frameborder='0'/>");
 			            $('#restcontainer').after(phone);
 			        }
 			        else if(content == 'rasmus'){
+				        $('.easter').attr("src", " ");
+				        $('.easter').remove();
 			        	jQuery('#output').text('Oh Rasmus, we love thee :-)');
-			            var sigs = $("<iframe id='easter' type='text/html' width='940' height='600' src='http://www.youtube.com/embed/s_B44jS0XrQ?autoplay=1&controls=0&showinfo=0' frameborder='0'/>");
+			            var sigs = $("<iframe class='easter' type='text/html' width='940' height='600' src='http://www.youtube.com/embed/s_B44jS0XrQ?autoplay=1&controls=0&showinfo=0' frameborder='0'/>");
 			            $('#restcontainer').after(sigs);
 			        }
 			        
 			        else {
 			        //start på else
-			        $('#easter').attr("src", " ");
-			        $('#easter').remove();
+			        $('.easter').attr("src", " ");
+			        $('.easter').remove();
 			        var parameters = jQuery('#parameters').val()
 			        var call_url = 'https://restapi.e-conomic.com/' + content + '?demo=true' + parameters;
 			        jQuery.ajax({
@@ -107,9 +179,99 @@
 				    $("#demo").toggleClass('fullscreen');
 				    $(".wrap").toggleClass('nowrap');
 				  });
+				$("#filterhelp > .question-circle").click(function() {
+					console.log('filterhelp clicked');
+					window.open('http://restdocs.e-conomic.com/#filtering');
+				});
+				$("#pathhelp > .question-circle").click(function() {
+					console.log('pathhelp clicked');
+					helpurl = jQuery('#requestpath').val();
+					if(typeof helpurl !== 'undefined'){
+					   helpurlslice = helpurl.slice(0,helpurl.indexOf("/"));
+					 };
+					restdocs = 'http://restdocs.e-conomic.com/#';
+					window.open(restdocs + helpurlslice);
+				});
 			</script>
 			</div>
 			</div>
 		</article>
 	</div>
+	<footer id="footer" class="region region-footer">
+		<div class="footer-content">
+			<div class="block block-menu first odd block-menu_footer_menu block-32" role="navigation">
+				<ul class="menu">
+					<li class="menu__item is-expanded first expanded"><a href="/" class="menu__link">Accounting Software</a>
+					<ul class="menu">
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://www.e-conomic.com/accountingsoftware/e-conomic-online-accounting" title="The basics of e-conomic">Online Accounting</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/accountingsoftware/accounting-words" title="Explanation of the most common accounting terms">Accounting terms</a></li>
+											<li class="menu__item is-leaf last leaf"><a class="menu__link" href="https://debitoor.com/" title="Debitoor online invoicing software">Free online invoicing</a></li>
+										</ul></li>
+					<li class="menu__item is-expanded expanded"><a href="/" class="menu__link">Information</a>
+					<ul class="menu">
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://www.e-conomic.com/about" title="About e-conomic as a company">About Us</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/about/jobs" title="Jobs at e-conomic">Jobs</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/about/contact" title="Contact information">Contact Page</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/about/terms-of-use" title="Terms of use and copyright information">Legal</a></li>
+											<li class="menu__item is-leaf last leaf"><a class="menu__link" href="https://www.e-conomic.com/about/privacy-policy" title="Privacy policy for e-conomic's online media">Privacy</a></li>
+										</ul></li>
+					<li class="menu__item is-expanded expanded"><a href="/" class="menu__link social-icons">Follow</a>
+					<ul class="menu">
+																<li class="menu__item is-leaf first leaf"><a class="menu__link youtube" href="http://www.youtube.com/user/economicuk" title="e-conomic UK YouTube channel"></a></li>
+											<li class="menu__item is-leaf last leaf"><a class="menu__link feed" href="https://www.e-conomic.com/news/feeds" title="e-conomic RSS feeds"></a></li>
+										</ul></li>
+					<li class="menu__item is-expanded expanded"><a href="/" class="menu__link">Useful Links</a>
+					<ul class="menu">
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://www.e-conomic.com/support" title="e-conomic support, online and offline">Support and Hotline</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/accountingsoftware" title="Accounting software - simple, online and secure">Accounting software</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/about/partner-program" title="Make money on your website">Referral Program</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/apps" title="Find an App which connects with e-conomic">Apps for e-conomic</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/references" title="What users say about e-conomic">References</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/sitemap" title="What to find on www.e-conomic.com">Site Map</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="https://www.e-conomic.com/accountingsoftware/e-conomic-online-accounting" title="The basics of e-conomic">Online Accounting</a></li>
+											<li class="menu__item is-leaf last leaf"><a class="menu__link" href="https://www.e-conomic.com/about/online-presence" title="e-conomic websites, blogs, wikis and forums">e-conomic elsewhere</a></li>
+										</ul></li>
+					<li class="menu__item is-expanded expanded"><a href="/" class="menu__link">For Developers</a>
+					<ul class="menu">
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://www.e-conomic.com/developer" title="Documentation, tutorials, samples and other resources to get you started developing">Developer Network</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="http://apiforum.e-conomic.com/" title="Questions, answers and dialog related to the API">API Forum</a></li>
+											<li class="menu__item is-leaf last leaf"><a class="menu__link" href="https://www.e-conomic.com/news/developer-newsletter-archive" title="Get the latest news, tips &amp; tricks and more">Developer Newsletters</a></li>
+										</ul></li>
+					<li class="menu__item is-expanded last expanded"><a href="/" class="menu__link">Other Media</a>
+					<ul class="menu">
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="http://blog.e-conomic.com/" title="Global blog, dialogue on e-conomic">Blog</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="http://techtalk.e-conomic.com/" title="The technical voice of e-conomic">TechTalk Blog</a></li>
+											<li class="menu__item is-leaf leaf"><a class="menu__link" href="http://wiki.e-conomic.co.uk/" title="User guides to e-conomic">e-copedia (help)</a></li>
+											<li class="menu__item is-leaf last leaf"><a class="menu__link" href="https://www.e-conomic.com/news" title="News and press">News</a></li>
+										</ul></li>
+				</ul>
+			</div>
+			<div class="block block-block even block-footer_contact_block block-64">
+				<h2 class="block__title block-title">Contact</h2>
+				<div class="fl s1of2">
+					e-conomic international a/s<br>				Langebrogade 1, building A<br>												DK - 1411 Copenhagen K<br>				Denmark<br>			</div>
+	
+				<div class="fl s1of2">
+					Phone: +45 88 20 48 40<br>								Fax: +45 88 20 48 42<br>								Email: <a href="mailto:info@e-conomic.com">info@e-conomic.com</a>			</div>
+	
+			</div>
+			<div class="block block-block even block-footer_contact_block block-64">
+													</div>
+			<div class="block block-block odd block-footer_copyright block-65">
+				<p>© 2002 - 2015 e-conomic international. All rights reserved.</p>
+			</div>
+			<div class="block block-locale last even block-15" role="complementary">
+				<ul class="language-switcher-locale-url">
+													<li class="sv first "><a class="language-link locale-untranslated" lang="sv" href="https://www.e-conomic.se/" title="Redovisningssystem för bokföring och fakturering">Redovisningssystem för bokföring och fakturering</a></li>
+									<li class="nb "><a class="language-link locale-untranslated" lang="nb" href="https://www.e-conomic.no/" title="Regnskapsprogram for bokføring og fakturering">Regnskapsprogram for bokføring og fakturering</a></li>
+									<li class="da "><a class="language-link locale-untranslated" lang="da" href="https://www.e-conomic.dk/" title="Regnskabsprogram til bogføring og fakturering">Regnskabsprogram til bogføring og fakturering</a></li>
+									<li class="de "><a class="language-link locale-untranslated" lang="de" href="https://www.e-conomic.de/" title="Online Buchhaltungssoftware">Online Buchhaltungssoftware</a></li>
+									<li class="es "><a class="language-link locale-untranslated" lang="es" href="https://www.e-conomic.es/" title="Programa de contabilidad para asesores/gestores">Programa de contabilidad para asesores/gestores</a></li>
+									<li class="en "><a class="language-link locale-untranslated" lang="en" href="https://www.e-conomic.co.uk/" title="Accounting system for bookkeeping and invoicing">Accounting system for bookkeeping and invoicing</a></li>
+									<li class="fi "><a class="language-link locale-untranslated" lang="fi" href="https://www.e-conomic.fi/" title="Ohjelma kirjanpitoon ja laskutukseen">Ohjelma kirjanpitoon ja laskutukseen</a></li>
+									<li class="fr last "><a class="language-link locale-untranslated" lang="fr" href="https://www.e-conomic.fr/" title="Logiciel de comptabilité pour comptable et facturation">Logiciel de comptabilité pour comptable et facturation</a></li>
+								</ul>
+			</div>
+		</div>
+	</footer>
 </body>

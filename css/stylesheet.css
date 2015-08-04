@@ -30,3 +30,34 @@ span {
 .md_input_t1 {
 	width: 200px;
 }
+.oj_static {
+	background: linear-gradient(to bottom, #666, #333 50%);
+	color: #FFF;
+	border: 1px solid #333;
+}
+#filterhelp, #pathhelp {
+    position: relative;
+    z-index: 999;
+    left: -25px;
+    top: 0;
+    color: #7B7B7B;
+    cursor:pointer;
+    width: 0;
+}
+.question-circle {
+	background-color: #ccc;
+	border-radius: 50%;
+	width: 16px;
+	height: 14px;
+	padding: 2px 0 0 0;
+	font-size: 12px;
+	font-family: sans-serif;
+	font-style: normal;
+	display: inline-block;
+	text-align: center;
+	position: absolute;
+	top: 1px;
+	right: -16px;
+	cursor: pointer;
+	cursor: hand;
+}
