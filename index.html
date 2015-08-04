@@ -1,4 +1,5 @@
 <!doctype HTML>
+<html>
 <head>
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 	<script src="js/highlight.pack.js"></script>
@@ -6,7 +7,7 @@
 	<link rel="stylesheet" href="https://www.e-conomic.com/css/facelift.css?open&amp;v=2" media="screen">
 	<link rel="stylesheet" href="css/stylesheet.css">
 	<link rel="stylesheet" href="css/highlight.styles/tomorrow.css">
-	
+
 </head>
 <body>
 <header class="header" id="header" role="banner">
@@ -23,12 +24,12 @@
 					<div class="navigation-search-btn">
 						<button id="wg-search-btn-ctr" name="sa" value="" title="Search" type="submit" class="btn-seach-img"></button>
 					</div>
-				</form>	
+				</form>
 			</div>
 						<div class="block block-menu first last odd block-menu_main_menu_support block-35" role="navigation">
 				<ul class="menu">
 																	<li class="menu__item is-leaf first leaf"> <a href="tel:08456-800-471" title="Phone" class="menu__link">08456-800-471</a></li>
-																						
+
 															<li class="menu__item is-leaf  leaf"><a href="http://wiki.e-conomic.co.uk/" title="UK e-copedia wiki, help and guides to e-conomic" class="menu__link">e-copedia</a></li>										<li class="menu__item is-leaf  leaf"><a href="http://blog.e-conomic.co.uk/" title="UK blog, dialogue on e-conomic" class="menu__link">Blog</a></li>																																																	</ul>
 			</div>
 		</div>
@@ -92,17 +93,17 @@
 			<span style="font: normal 0.8em/1.5em 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">Examples? <a href="#" onclick="update('products', '&filter=productNumber$gt:112')">ProductNumbers greater than 112</a> or perhaps <a href="#" onclick="update('invoices-experimental/drafts', '&filter=date$eq:2014-11-21')">Invoice drafts from Nov. 21st 2014</a> or even <a href="#" onclick="update('invoices-experimental/drafts', '&sort=customer.customerNumber')">sort invoice drafts by customerNumber</a></span>
 			<br><br>
 			<pre id="restcontainer"><code id="output" class="json">...</code></pre>
-		
+
 			<script>
 			    function update(call, extension){
 			        jQuery('#requestpath').val(call);
 			        jQuery('#parameters').val(extension);
 			        interactive_call();
 			    }
-			
+
 			    function interactive_call(){
 			        var content = jQuery('#requestpath').val()
-			        
+
 			        //Default content for path
 			        if(content == 'banana'){
 			        	$('.easter').attr("src", " ");
@@ -118,7 +119,7 @@
 			            var sigs = $("<iframe class='easter' type='text/html' width='940' height='600' src='http://www.youtube.com/embed/s_B44jS0XrQ?autoplay=1&controls=0&showinfo=0' frameborder='0'/>");
 			            $('#restcontainer').after(sigs);
 			        }
-			        
+
 			        else {
 			        //start på else
 			        $('.easter').attr("src", " ");
@@ -130,25 +131,25 @@
 			      url: call_url,
 			      context: document.body
 			    }).complete(function(data) {
-			        
+
 			        if (data['status'] == 500) {
 			            jQuery('#output').text(data['status'] + ' ' + data['statusText']);
 			        }
 			        else {
 			            var d = jQuery.parseJSON(data['responseText']);
 			            jQuery('#output').text(JSON.stringify(d, null, 4));
-			            
+
 			            //Run highlight.js on our code block
 			            $('pre code').each(function(i, block) {
 			                hljs.highlightBlock(block);
 			              });
-			              
+
 			            //Find all REST self links and make them interactive by wrapping with a+onclick
 			            $('.hljs-string').each( function() {
 			                str = $(this).text();
 			                //console.log(str + '- eached - not tested!');
-			                
-			                //Check if .hljs-string classed element contains starts with "https  
+
+			                //Check if .hljs-string classed element contains starts with "https
 			                if(/("https.*\?)/i.test(str)) {
 			                   //console.log(str + '- match found!');
 			                   //console.log(this)
@@ -156,25 +157,25 @@
 			                   thispath = str.slice(31, str.indexOf('?'))
 			                   //The parameters presume that we cut away ?demo=true as we've decided this is a static part of our REST demo. The last character being cut off is the doublequote around the JSON string.
 			                   parameters = str.slice( str.indexOf("&"), -1 )
-		
+
 			                   $( this ).wrap( '<a href="#" onclick="update(' + "'" + thispath + "'" + ',' + "'" + parameters + "'" + ')"></a>' );
 			                }
 			             });
-			            
+
 			        }
-			        
+
 			    });
 			    }
-			    			 //end else 
+			    			 //end else
 			    			 }
-			   
+
 				$("#requestpath, #parameters").keyup(function(event) {
 				    if (event.which == 13) {
 				        event.preventDefault();
 				        interactive_call();
 				   	}
 				});
-				
+
 				$(".btn-fullscreen").click(function(){
 				    $("#demo").toggleClass('fullscreen');
 				    $(".wrap").toggleClass('nowrap');
@@ -250,10 +251,10 @@
 				<h2 class="block__title block-title">Contact</h2>
 				<div class="fl s1of2">
 					e-conomic international a/s<br>				Langebrogade 1, building A<br>												DK - 1411 Copenhagen K<br>				Denmark<br>			</div>
-	
+
 				<div class="fl s1of2">
 					Phone: +45 88 20 48 40<br>								Fax: +45 88 20 48 42<br>								Email: <a href="mailto:info@e-conomic.com">info@e-conomic.com</a>			</div>
-	
+
 			</div>
 			<div class="block block-block even block-footer_contact_block block-64">
 													</div>
@@ -275,3 +276,4 @@
 		</div>
 	</footer>
 </body>
+</html>
