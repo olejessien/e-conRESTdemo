@@ -147,12 +147,10 @@
 			            //Find all REST self links and make them interactive by wrapping with a+onclick
 			            $('.hljs-string').each( function() {
 			                str = $(this).text();
-			                //console.log(str + '- eached - not tested!');
-
+			                
 			                //Check if .hljs-string classed element contains starts with "https
 			                if(/("https.*\?)/i.test(str)) {
-			                   //console.log(str + '- match found!');
-			                   //console.log(this)
+			                
 			                   //the path is everything after the REST API root URL and up until we start the URL parameters with '?'. So the leading "https://.. etc can be removed as we add it staticly.
 			                   thispath = str.slice(31, str.indexOf('?'))
 			                   //The parameters presume that we cut away ?demo=true as we've decided this is a static part of our REST demo. The last character being cut off is the doublequote around the JSON string.
@@ -162,12 +160,12 @@
 			                }
 			             });
 
-			        }
+			           }
 
-			    });
-			    }
-			    			 //end else
-			    			 }
+			         });
+			      }
+    			 //end else
+    			 }
 
 				$("#requestpath, #parameters").keyup(function(event) {
 				    if (event.which == 13) {
@@ -181,11 +179,9 @@
 				    $(".wrap").toggleClass('nowrap');
 				  });
 				$("#filterhelp > .question-circle").click(function() {
-					console.log('filterhelp clicked');
 					window.open('http://restdocs.e-conomic.com/#filtering');
 				});
 				$("#pathhelp > .question-circle").click(function() {
-					console.log('pathhelp clicked');
 					helpurl = jQuery('#requestpath').val();
 					if(typeof helpurl !== 'undefined'){
 					   helpurlslice = helpurl.slice(0,helpurl.indexOf("/"));
