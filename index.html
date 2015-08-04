@@ -89,7 +89,7 @@
 				<span class="md_input_t1 oj_static" onclick="update('')" title="Click to go to root" style="cursor: hand;cursor: pointer;">https://restapi.e-conomic.com/</span> <input id="requestpath" class="md_input_w3 md_input_t1" type="text" placeholder="products/" size="20" />
 				<i id="pathhelp"><span  class="question-circle">?</span></i><span class="md_input_t1 oj_static">?demo=true</span> <input id="parameters" class="md_input_w3 md_input_t1" type="text" placeholder="&filter=productNumber$lt:102" size="20" /> <i id="filterhelp"><span  class="question-circle">?</span></i> <button onclick="interactive_call();return false;" class="md_but_t2 md_rad2 fs8">Go</button>
 			<br>
-			<span style="font: normal 0.8em/1.5em 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">Examples? <a href="#" onclick="update('products', '&filter=productNumber$gt:112')">ProductNumbers greater than 112</a> or perhaps <a href="#" onclick="update('invoices-experimental/drafts', '&filter=date$eq:2014-11-21')">Invoice drafts from Nov. 21st 2014</a></span>
+			<span style="font: normal 0.8em/1.5em 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">Examples? <a href="#" onclick="update('products', '&filter=productNumber$gt:112')">ProductNumbers greater than 112</a> or perhaps <a href="#" onclick="update('invoices-experimental/drafts', '&filter=date$eq:2014-11-21')">Invoice drafts from Nov. 21st 2014</a> or even <a href="#" onclick="update('invoices-experimental/drafts', '&sort=customer.customerNumber')">sort invoice drafts by customerNumber</a></span>
 			<br><br>
 			<pre id="restcontainer"><code id="output" class="json">...</code></pre>
 		
